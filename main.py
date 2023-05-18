@@ -5,6 +5,8 @@ import datetime
 app = FastAPI()
 #handler = Mangum(app)
 
+counts = [0,0,0,0]
+
 # CORS
 app.add_middleware(
     CORSMiddleware,
@@ -16,9 +18,17 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {counts}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int):
-    return {"item_id": item_id}
+@app.get("/add/{item_id}")
+def add_item(item_id: int):
+    counts[item_id]  += 1
+    return {counts}
+
+
+@app.get("/reset")
+def reset_items():
+    global counts
+    counts = [0,0,0,0]
+    return
