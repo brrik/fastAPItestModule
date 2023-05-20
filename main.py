@@ -76,7 +76,7 @@ def makeRetData(origData: list):
     return modData
 
 def makeFreeRetData(origData :list):
-    for i in range(origData):
+    for i in range(len(origData)):
         modData = {}
         modData[i] = origData[i]
     
