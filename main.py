@@ -48,7 +48,11 @@ def reset_items():
 def show_result():
     global freeRetData
     global retData
-    if sum(retData) == 0:
+    sumRet = 0
+    for i in range(retData):
+        sumRet = sumRet + retData[i]
+    
+    if sumRet == 0:
         return freeRetData
     else:
         return retData
