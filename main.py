@@ -6,7 +6,9 @@ app = FastAPI()
 #handler = Mangum(app)
 
 counts = [0,0,0,0]
+free_list = []
 retData = {}
+freeRetData = {}
 
 # CORS
 app.add_middleware(
@@ -33,14 +35,31 @@ def add_item(item_id: int):
     retData = makeRetData(counts)
     return retData
 
-
 @app.get("/reset")
 def reset_items():
     global counts
+    global freeRetData
     global retData
     counts = [0,0,0,0]
-    retData = makeRetData(counts)
-    return retData
+    freeRetData = {}
+    return
+
+@app.get("/result")
+def show_result():
+    global freeRetData
+    global retData
+    if sum(retData) == 0:
+        return freeRetData
+    else:
+        return retData
+
+@app.get("/free/{postData}")
+def freeform_add_item(postData :str):
+    global free_list
+    global freeRetData
+
+    freeRetData = makeFreeRetData(free_list)
+    return freeRetData
 
 def makeRetData(origData: list):
     modData = {
@@ -50,4 +69,11 @@ def makeRetData(origData: list):
         "c4": origData[3]
     }
 
+    return modData
+
+def makeFreeRetData(origData :list):
+    for i in range(origData):
+        modData = {}
+        modData[i] = origData[i]
+    
     return modData
