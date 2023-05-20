@@ -49,7 +49,7 @@ def show_result():
     global freeRetData
     global retData
     sumRet = 0
-    for i in range(retData):
+    for i in range(len(retData)):
         sumRet = sumRet + retData[i]
     
     if sumRet == 0:
@@ -61,7 +61,7 @@ def show_result():
 def freeform_add_item(postData :str):
     global free_list
     global freeRetData
-
+    free_list.append(postData)
     freeRetData = makeFreeRetData(free_list)
     return freeRetData
 
@@ -78,6 +78,6 @@ def makeRetData(origData: list):
 def makeFreeRetData(origData :list):
     modData = {}
     for i in range(len(origData)):
-        modData[i] = origData[i]
+        modData["data" + str(i)] = origData[i]
     
     return modData
