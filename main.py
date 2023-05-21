@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 @app.get("/")
-def read_root():
+async def read_root():
     global counts
     global retData
     retData = makeRetData(counts)
@@ -28,7 +28,7 @@ def read_root():
 
 
 @app.get("/add/{item_id}")
-def add_item(item_id: int):
+async def add_item(item_id: int):
     global counts
     global retData
     counts[item_id]  += 1
@@ -36,7 +36,7 @@ def add_item(item_id: int):
     return retData
 
 @app.get("/reset")
-def reset_items():
+async def reset_items():
     global counts
     global free_list
     global freeRetData
@@ -48,7 +48,7 @@ def reset_items():
     return
 
 @app.get("/result")
-def show_result():
+async def show_result():
     global freeRetData
     global retData
     sumRet = 0
@@ -61,7 +61,7 @@ def show_result():
         return retData
 
 @app.get("/free/{postData}")
-def freeform_add_item(postData :str):
+async def freeform_add_item(postData :str):
     global free_list
     global freeRetData
     free_list.append(postData)
