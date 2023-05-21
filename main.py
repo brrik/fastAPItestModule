@@ -38,11 +38,12 @@ def add_item(item_id: int):
 @app.get("/reset")
 def reset_items():
     global counts
+    global free_list
     global freeRetData
     global retData
     counts = [0,0,0,0]
+    free_list = []
     retData = {}
-    freeList = []
     freeRetData = {}
     return
 
@@ -51,8 +52,8 @@ def show_result():
     global freeRetData
     global retData
     sumRet = 0
-    for i in counts:
-        sumRet = sumRet + i
+    for i in range(len(retData)):
+        sumRet = int(sumRet) + int(retData[i])
     
     if sumRet == 0:
         return freeRetData
