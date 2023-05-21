@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>結果集計</title>
+</head>
+<body>
+    <button onclick="getData()">更新</button>
+    <h1>みなさんの回答結果</h1>
+    <div id="selectOutput">
+        <table id="choiseTable">
+            <tr>
+                <th>①</th>
+                <th>②</th>
+                <th>③</th>
+                <th>④</th>
+            </tr>
+            <tr>
+                <td id="c1">0</td>
+                <td id="c2">0</td>
+                <td id="c3">0</td>
+                <td id="c4">0</td>
+            </tr>
+        </table>
+    </div>
+    <div id="freeOutput">
+
+    </div>
+    <button onclick="resetData()">リセット</button>
+    <script src="admin.js"></script>
+</body>
+</html>
