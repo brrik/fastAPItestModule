@@ -50,7 +50,7 @@ def show_result():
     global retData
     sumRet = 0
     for i in counts:
-        sumRet = i
+        sumRet = sumRet + i
     
     if sumRet == 0:
         return freeRetData
