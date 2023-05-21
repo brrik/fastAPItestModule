@@ -41,6 +41,8 @@ def reset_items():
     global freeRetData
     global retData
     counts = [0,0,0,0]
+    retData = {}
+    freeList = []
     freeRetData = {}
     return
 
