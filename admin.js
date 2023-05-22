@@ -11,6 +11,9 @@ http.onreadystatechange = function() {
         if(x == null || x == undefined || Object.keys(x).length == 0){
 
             console.log("nothing");
+            while(divElem.lastChild){
+                divElem.removeChild(divElem.lastChild);
+            }
 
         }else{
             let objKey = Object.keys(x)
