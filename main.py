@@ -45,15 +45,15 @@ async def reset_items():
     free_list = []
     retData = {}
     freeRetData = {}
-    return
+    return retData
 
 @app.get("/result")
 async def show_result():
     global freeRetData
     global retData
     sumRet = 0
-    for i in counts:
-        sumRet = sumRet + i
+    for i in range(len(retData)):
+        sumRet = int(sumRet) + int(retData[i])
     
     if sumRet == 0:
         return freeRetData
