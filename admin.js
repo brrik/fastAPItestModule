@@ -11,6 +11,7 @@ http.onreadystatechange = function() {
         if(x == null || x == undefined || Object.keys(x).length == 0){
 
             console.log("nothing");
+            let divElem = document.getElementById("freeOutput");
             while(divElem.lastChild){
                 divElem.removeChild(divElem.lastChild);
             }
