@@ -57,3 +57,5 @@ function getData(){
     http.open("GET", mainURL + "result");
     http.send();
 }
+
+let timerID = setInterval(getData, 1000);
