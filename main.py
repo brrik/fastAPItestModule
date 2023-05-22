@@ -52,8 +52,8 @@ async def show_result():
     global freeRetData
     global retData
     sumRet = 0
-    for i in range(len(retData)):
-        sumRet = int(sumRet) + int(retData[i])
+    for i in counts:
+        sumRet = sumRet + i
     
     if sumRet == 0:
         return freeRetData
