@@ -36,7 +36,7 @@ async def add_item(item_id: int):
     return retData
 
 @app.get("/reset")
-async def reset_items():
+def reset_items():
     global counts
     global free_list
     global freeRetData
@@ -48,16 +48,19 @@ async def reset_items():
     return retData
 
 @app.get("/result")
-async def show_result():
+def show_result():
     global freeRetData
     global retData
+    global counts
     sumRet = 0
-    for i in range(len(retData)):
-        sumRet = int(sumRet) + int(retData[i])
+    for i in counts:
+        sumRet = sumRet + i
     
     if sumRet == 0:
+        print(freeRetData)
         return freeRetData
     else:
+        print(retData)
         return retData
 
 @app.get("/free/{postData}")
