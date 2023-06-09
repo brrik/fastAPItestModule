@@ -7,7 +7,12 @@ app = FastAPI()
 
 counts = [0,0,0,0]
 free_list = []
-retData = {}
+retData = {
+    "c1": 0,
+    "c2": 0,
+    "c3": 0,
+    "c4": 0
+}
 freeRetData = {}
 
 # CORS
